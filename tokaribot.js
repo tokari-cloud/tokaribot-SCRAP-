@@ -26,6 +26,10 @@ client.on('message', message => {
 
     const command = client.commands.get(commandName);
 
+    if (command.guildOnly && message.channel.type === 'dm') {
+        return message.reply('That command is only allowed to be executed within the server. Please try again.');
+    }
+
     try {
         command.execute(message, args);
     } catch (error) {

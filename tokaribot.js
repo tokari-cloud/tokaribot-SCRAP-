@@ -13,6 +13,8 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
+    let channel = client.guilds.get('guild_id').channels.get('channel_id');
+    channel.send('A custom emoji: <:pepeHands:745884492438175845>')
     console.log('Ready!');
 });
 
